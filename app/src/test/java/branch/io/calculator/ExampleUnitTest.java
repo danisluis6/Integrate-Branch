@@ -1,4 +1,4 @@
-package branch.io.example;
+package branch.io.calculator;
 
 import org.junit.Test;
 

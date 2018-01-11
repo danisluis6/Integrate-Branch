@@ -1,4 +1,4 @@
-package branch.io.example;
+package branch.io.calculator.app;
 
 import android.app.Application;
 
@@ -9,16 +9,11 @@ import io.branch.referral.Branch;
  *
  */
 
-public final class BranchApp extends Application {
+public final class EMApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        // Branch logging for debugging
-        Branch.enableLogging();
-
         // Initialize the Branch object
         Branch.getAutoInstance(this);
-
     }
 }
