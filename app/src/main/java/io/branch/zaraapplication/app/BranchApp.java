@@ -6,10 +6,10 @@ import io.branch.referral.Branch;
 
 /**
  * Created by lorence on 30/01/2018.
- * #AppName: ZaraApplication
+ * #AppName: BranchApp
  */
 
-public class ZaraApplication extends Application {
+public class BranchApp extends Application {
 
     @Override
     public void onCreate() {

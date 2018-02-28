@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".app.ZaraApplication"
+        android:name=".app.BranchApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,26 +24,12 @@
 
             <!-- Branch URI scheme -->
             <intent-filter>
-                <data
-                    android:host="open"
-                    android:scheme="zaraapp" />
+                <data android:scheme="zaraapp" android:host="open" />
                 <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-
-            <!-- AppLink config -->
-            <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="aotb.app.link"
-                    android:scheme="https" />
-                <data
-                    android:host="aotb.app.link"
-                    android:scheme="http" />
             </intent-filter>
+
         </activity>
 
         <activity
@@ -66,23 +52,16 @@
             android:launchMode="singleTask" />
 
         <!-- Branch init -->
-        <meta-data
-            android:name="io.branch.sdk.BranchKey"
-            android:value="key_live_keqQ9jdymNSKqnCrmNau6kmivCl7bdvO" />
-
-        <meta-data
-            android:name="io.branch.sdk.BranchKey.test"
-            android:value="key_test_bntR0nmuaGUREjsDlGoB3gbfFyk4abww" />
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_ietR9UuPSmThoDZdudcvsmdlsFelkoQ4" />
+        <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ccqK2GqVPaGhoF2exicBdcbnuqpkphQP" />
 
         <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
-        <meta-data
-            android:name="io.branch.sdk.TestMode"
-            android:value="false" />
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
+
+
 
         <!-- Branch install referrer tracking -->
-        <receiver
-            android:name="io.branch.referral.InstallListener"
-            android:exported="true">
+        <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>

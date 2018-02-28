@@ -2,14 +2,11 @@ package io.branch.zaraapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,8 +25,7 @@ public class Activity1 extends AppCompatActivity {
     }
 
     private void initBranch() {
-        Branch branch = Branch.getInstance();
-        branch.initSession(new Branch.BranchReferralInitListener() {
+        Branch.getInstance().initSession(new Branch.BranchReferralInitListener() {
             @Override
             public void onInitFinished(JSONObject referringParams, BranchError error) {
                 if (error == null) {
@@ -50,10 +46,8 @@ public class Activity1 extends AppCompatActivity {
                                 startActivity(i);
                             }
                         } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    } else {
-                        //do stuff without Branch link data
-                        startActivity(new Intent(Activity1.this, Activity4.class));
                     }
                 }
                 else {
@@ -74,17 +68,8 @@ public class Activity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Activity 1");
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Activity1.this, Activity4.class));
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -105,7 +90,6 @@ public class Activity1 extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
