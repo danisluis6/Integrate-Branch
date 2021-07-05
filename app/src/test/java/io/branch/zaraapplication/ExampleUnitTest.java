@@ -1,4 +1,4 @@
-package branch.io.example;
+package io.branch.zaraapplication;
 
 import org.junit.Test;
 
